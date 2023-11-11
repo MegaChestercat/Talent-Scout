@@ -50,7 +50,7 @@ nav ul li .norm::after{
     content: '';
     width: 0;
     height: 3px;
-    background: blue;
+    background: orange;
     position: absolute;
     left: 0;
     bottom: -6px;
@@ -74,6 +74,14 @@ nav ul li .norm:hover::after{
     width: 5rem;
 }
 
+.btn[id="log"]:hover{
+    background-color: #D88E35;
+}
+
+.btn[id="log"]:hover::after{
+    background-color: lightgray;
+}
+
 .header-title{
     color: rgb(255,255,255);
     margin-top: 7%;
@@ -81,6 +89,39 @@ nav ul li .norm:hover::after{
     text-align: center;
 }
 
+#reg{
+    background-color: orange;
+}
+
+#reg:hover{
+    background-color: #D88E35;
+}
+
+#reg:hover::after{
+    background-color: orange;
+}
+
+h6{
+    margin-top:4rem;
+    margin-bottom: 2.2rem;
+}
+
+#main_btn{
+    border-color: transparent;
+    border-radius: 15rem;
+    background-color: rgba(255, 139, 0, 0.8);
+    height: 4rem;
+    font-size: 1.1rem;
+    width: 12rem;
+}
+
+#main_btn:hover{
+    background-color: rgba(216, 142, 53, 0.8);
+}
+
+#main_btn:hover::after{
+    background-color: rgba(255, 139, 0, 0.8);
+}
 
 #copyright{
     width: 100%;

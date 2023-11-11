@@ -1,7 +1,7 @@
 *{
-    
+    margin: 0;
+    padding: 0;
     font-family: "Arial", "sans-serif";
-    
 }
 body{
     background-image: url(../img/bg2.png);
@@ -41,6 +41,10 @@ h1{
 p[id=copyright]{
     text-align: center;
     
+}
+
+#not{
+    margin-top: 1rem;
 }
 p, label{
     font-weight: bold;
