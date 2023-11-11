@@ -1,0 +1,65 @@
+*{
+    
+    font-family: "Arial", "sans-serif";
+    
+}
+body{
+    background-image: url(../img/bg2.png);
+    background-size: cover;
+}
+.form{
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 3rem;
+    box-shadow: 0 0 0.88rem #000000;
+    border-radius: 1rem;
+    
+}
+
+.box{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+}
+input{
+    display: block;
+    margin-bottom: 1.7rem;
+    width: 20rem;
+    height:2.5rem;
+    border-radius: 2rem;
+    padding: 0.5rem;
+}
+h1{
+    text-align: center;
+    margin-top: 3rem;
+    color: rgb(255, 255, 255);
+}
+
+p[id=copyright]{
+    text-align: center;
+    
+}
+p, label{
+    font-weight: bold;
+}
+button{
+    display: block;
+    border-radius: 2rem;
+    width: 21rem;
+    height: 3rem;
+    margin-top: 0.2rem;
+    margin-bottom: 1.8rem;
+    background-color:orange;
+}
+
+button:hover{
+    background-color: dodgerblue;
+}
+
+
+button:hover::after{
+    background-color:orange;
+}
