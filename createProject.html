@@ -1,15 +1,75 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="src/css/normalize.css">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link type="text/css" rel="stylesheet" href="src/css/login.css">
-        <title>Create Project | TalentHunters</title>
-        <link rel="shortcut icon" href="src/icon.png">
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="src/css/normalize.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="src/css/login.css">
+    <title>Create Project | TalentHunters</title>
+    <link rel="shortcut icon" href="src/icon.png">
+    <link rel="stylesheet" href="style.css"> <!-- Include the new style.css -->
+</head>
+<body>
 
-    </body>
+<div class="container">
+    <h1>Create or Design your Project</h1>
+    <div class="box">
+        <div class="form">
+            <form>
+                <div class="form-group">
+                    <label for="projectName">Project Name:</label>
+                    <input type="text" id="projectName" name="projectName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" name="startDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate" name="endDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentType">Payment Type:</label>
+                    <select id="paymentType" name="paymentType" required>
+                        <option value="commission">Commission</option>
+                        <option value="hourly">Hourly</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentAmount">Payment Amount (USD):</label>
+                    <input type="number" id="paymentAmount" name="paymentAmount" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="workforceSize">Workforce Size Required:</label>
+                    <input type="number" id="workforceSize" name="workforceSize" min="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description" style="margin-left: 0;">Description:</label>
+                    <textarea id="description" name="description" style="width: calc(100% - 22px); border-radius: 5px; border-width: 2px;" rows="5" required></textarea>
+                </div>
+
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="desirableAbilities">Desirable Abilities:</label>
+                    <textarea id="desirableAbilities" name="desirableAbilities" style="width: calc(100% - 22px); border-radius: 5px; border-width: 2px;" rows="5" required></textarea>
+                </div>
+
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="requiredAbilities">Required Abilities:</label>
+                    <textarea id="requiredAbilities" name="requiredAbilities" style="width: calc(100% - 22px); border-radius: 5px; border-width: 2px;" rows="5" required></textarea>
+                </div>
+
+                <button id="uploadButton" style="margin-top: 20px;">Upload Project</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
 </html>
