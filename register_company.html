@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="src/css/register_2.css">
-        <title>Register Individual | Who's your Talent?!</title>
+        <title>Register Company | Who's your Talent?!</title>
         <link rel="shortcut icon" href="src/img/icon.jpg">
     </head>
     <body>
@@ -16,12 +16,18 @@
                 <form>
                     <fieldset>
                         <legend>Account Details:</legend>
+                        <label for="Email">Email:</label>
+                        <input type="text" id="Email" placeholder="example@email.com">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" placeholder="Password">
                         <label for="PhoneNum">Phone Number:</label>
                         <input type="text" id="PhoneNum" placeholder="Google">
                         <label for="location">Location:</label>
                         <input type="text" id="location" placeholder="USA">
                         <label for="desc">Account Description:</label>
-                    <textarea id="desc" placeholder="A business that tries to create innovative technologies that can help to manage the current issues of medical technology."></textarea>
+                        <textarea id="desc" placeholder="A business that tries to create innovative technologies that can help to manage the current issues of medical technology."></textarea>
+                        <label for="ProjectActivity">Project Activities:</label>
+                        <input type="text" id="ProjectActivity" placeholder="Digital Animation, Marketing">
                     </fieldset>
                     <hr>
                     <fieldset>
@@ -30,8 +36,10 @@
                         <input type="text" id="CompanyName" placeholder="Google">
                         <label for="LegalRepresentative">Legal Representative:</label>
                         <input type="text" id="LegalRepresentative" placeholder="Clark Stewart">
-                        <label for="LegalRepresentative">Business Activity:</label>
-                        <input type="text" id="LegalRepresentative" placeholder="Clark Stewart">
+                        <label for="BusinessActivity">Business Activity:</label>
+                        <input type="text" id="BusinessActivity" placeholder="Advertising">
+                        <label for="EstDate">Establishment Date:</label>
+                        <input type="date" id="EstDate">
                     </fieldset>
                 </form>
                 <a href=""><button>Register</button></a>

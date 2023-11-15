@@ -35,7 +35,7 @@ label{
     font-weight: bold;
 }
 
-input, textarea{
+input, textarea, select{
     display: block;
     border-radius: 1rem;
     padding-left: 0.3rem;
@@ -69,10 +69,18 @@ legend{
 }
 
 button{
-    width: 21rem;
+    width: 22.3rem;
     height: 3rem;
     margin-top: 0.2rem;
     margin-bottom: 1.8rem;
     background-color:orange;
     border-radius: 2rem;
+}
+
+button:hover{
+    background-color: #D88E35;
+}
+
+button:hover::after{
+    background-color: orange;
 }
