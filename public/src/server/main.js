@@ -1,30 +1,31 @@
-const {db} = require(`./dbConnection`);
-
-
-
-doc = document.getElementById("regCompany")
-
-doc.addEventListener("click", (ev) =>{
-    console.log("Hola Guapuras")
-})
-    
-function Test(){
-    setTimeout(async () => {
-        res = await db.executeQuery("select * from [dbo].[Account]");
-        test = res.data
-        //res2 = test.find(obj => obj.AccId == 1)
-        console.log(test)
-    }, 300)
-}
+//but = document.getElementById("regCompany")
+//console.log(but)
 /*
-btn.click(function(){
-    console.log("Heroe")
-    setTimeout(async () => {
-    res = await db.executeQuery("select * from [dbo].[Account]");
-    test = res.data
-    //res2 = test.find(obj => obj.AccId == 1)
-    console.log(test)
-}, 300)
+$(document).ready(function (){
+  $("#compReg")[0].reset();
+});*/
+
+$("#regCompany").click(function(event){
+  event.preventDefault();
+  Swal.fire(
+    "Account Created Succesfully"
+    ).then(
+      $.ajax({
+        url: "http://localhost:3000/register_company/",
+        method: "POST",
+        timeout: 15000,
+        data: $("#compReg").serialize(),
+        dataType: "json",
+        beforeSend:function(){
+          $("#regCompany").attr("disabled", "disabled");
+        },
+        success: function(data){
+          $("#compReg").attr("disabled", false)
+        },
+        error: function(error){
+          console.log(error);
+        }
+        
+      })
+    )
 })
-*/
-//res = await db.executeQuery("select 1");
