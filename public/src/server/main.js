@@ -7,25 +7,22 @@ $(document).ready(function (){
 
 $("#regCompany").click(function(event){
   event.preventDefault();
-  Swal.fire(
-    "Account Created Succesfully"
-    ).then(
-      $.ajax({
-        url: "http://localhost:3000/register_company/",
-        method: "POST",
-        timeout: 15000,
-        data: $("#compReg").serialize(),
-        dataType: "json",
-        beforeSend:function(){
-          $("#regCompany").attr("disabled", "disabled");
-        },
-        success: function(data){
-          $("#compReg").attr("disabled", false)
-        },
-        error: function(error){
-          console.log(error);
-        }
-        
-      })
-    )
+  Swal.fire("Account Created Succesfully");
+  $.ajax({
+    url: "http://localhost:3000/register_company/",
+    method: "POST",
+    timeout: 15000,
+    data: $("#compReg").serialize(),
+    dataType: "json",
+    beforeSend:function(){
+      $("#regCompany").attr("disabled", "disabled");
+    },
+    success: function(data){
+      $("#compReg").attr("disabled", false)
+    },
+    error: function(error){
+      console.log(error);
+    }
+    
+  })
 })
