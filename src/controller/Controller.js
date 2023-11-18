@@ -30,7 +30,7 @@ function createContract(req, res){
 }
 
 function dash(req, res){
-    res.render("menu/dashboard")
+    res.render("menu/dashboard");
 }
 
 function speedDating(res, res){

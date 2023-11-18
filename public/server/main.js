@@ -1,12 +1,4 @@
-//but = document.getElementById("regCompany")
-//console.log(but)
-/*
-$(document).ready(function (){
-  $("#compReg")[0].reset();
-});*/
-
 $("#loginBtn").click(function(event){
-  
   $.ajax({
     url: "/login",
     method: "POST",
@@ -18,14 +10,26 @@ $("#loginBtn").click(function(event){
     },
     success: function(data){
       $("#loginForm").attr("disabled", false)
-      
-      msg = data.message
+      msg = data.id
+      msg2 = data.name
+      console.log(msg)
+      console.log(msg2)
       if(msg == "No exist"){
         Swal.fire("The account does not exist in the system")
       }
-      if(msg == "Incorrect Password"){
+      else if(msg == "Incorrect Password"){
         Swal.fire("The password you set is incorrect")
       }
+      else{
+        console.log(msg)
+        sessionStorage.setItem("id", msg)
+        sessionStorage.setItem("name", msg2)
+        setTimeout(()=>{
+          window.location.href = "/dashboard"
+        }, 10)
+      }
+    },
+    done:function(data){
     },
     error:function(data){
 
@@ -44,16 +48,12 @@ $("#regCompany").click(function(event){
       $("#regCompany").attr("disabled", "disabled");
     },
     success: function(data){
-      /*
-      msg = data.message
-      $("#compReg").attr("disabled", false)
-      if(msg  == "exist"){
-        Swal.fire("The Account already exists");
-        return false;
-      }*/
     },
     error: function(error){
       console.log(error);
     }
   })
+})
+
+$("cprojectbtn").click(function(event){
 })

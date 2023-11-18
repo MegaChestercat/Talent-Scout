@@ -38,11 +38,20 @@ app.use(session({
 app.use('/', routes);
 
 app.get("/", function (req, res){
-    if(req.session.loggedin == true){
-        res.render("/dashboard")
+    if(req.session.loggedin){
+        res.redirect("/dashboard")
     }
     else{
-        res.redirect("/login")
+        res.redirect("/home")
+    }
+})
+
+app.get("/login/success", function(req, res){
+    if(req.session.loggedin){
+        res.redirect("/dashboard")
+    }
+    else{
+        res.redirect("/home")
     }
 })
 
@@ -93,32 +102,42 @@ app.post('/register/company', function(request, response) {
 });
 
 //Read
-app.get("/login", function(req, res){
-    console.log(req.session.loggedin)
-    res.redirect('/')
-})
 app.post("/login", function(request, response){
     var emailLogin = request.body.emailLogin
     var passwordLogin = request.body.passwordLogin
     
     setTimeout(async ()=> {
         await sql_server.connect(dbConfig)
-        exist = await sql_server.query`SELECT * from [dbo].[Account] where Email = ${emailLogin}`
+        var exist = await sql_server.query`SELECT * from [dbo].[Account] where Email = ${emailLogin}`
         if(exist.recordset.length == 1){
             if(exist.recordset[0].Password != passwordLogin){
                 response.json({message: "Incorrect Password"})
             }
             else{
-                request.session.loggedin = true;
-                request.session.name = exist.recordset[0].AccId;
-                response.redirect("/dashboard")
-
+                var t1 = await sql_server.query`SELECT * from [dbo].[Hunter] where AccID = ${exist.recordset[0].AccId}`
+                var t2 = await sql_server.query`SELECT * from [dbo].[Talent] where AccId = ${exist.recordset[0].AccId}`
+                //console.log(t2.recordset)
+                //console.log(t1.recordset)
+                if(t2.recordset.length == 1){
+                    response.json({id: exist.recordset[0].AccId, name: t2.recordset[0].Nombre})
+                }
+                else if(t1.recordset.length == 1){
+                    t1 = await sql_server.query`SELECT * from [dbo].[Company] where HunterID = ${t1.recordset[0].HunterID}`
+                    t2 = await sql_server.query`SELECT * from [dbo].[Individual] where HunterID = ${t1.recordset[0].HunterID}`
+                    //console.log(t2.recordset)
+                    //console.log(t1.recordset)
+                    if(t1.recordset.length == 1){
+                        response.json({id: exist.recordset[0].AccId, name: t1.recordset[0].NombreCompania})
+                    }
+                    else if(t2.recordset.length == 1){
+                        response.json({id: exist.recordset[0].AccId, name: t2.recordset[0].Nombre})
+                    }
+                }
             }
         }
         else{
             response.json({message: "No exist"})
-        }
-        
+        } 
     }, 1)
 })
 
