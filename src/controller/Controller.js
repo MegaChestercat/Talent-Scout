@@ -21,8 +21,20 @@ function home(req, res){
     res.render("home")
 }
 
+function createProject(req, res){
+    res.render("others/createProject")
+}
+
+function createContract(req, res){
+    res.render("others/contract")
+}
+
 function dash(req, res){
     res.render("menu/dashboard")
+}
+
+function speedDating(res, res){
+    res.render("others/speeddating")
 }
 
 
@@ -35,4 +47,7 @@ module.exports = {
     registerTalent: registerTalent,
     home: home,
     dash: dash,
+    create: createProject,
+    contract: createContract,
+    speed: speedDating,
 }

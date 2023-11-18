@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: url(../img/bg2.png);
+    background-image: url(https://github.com/MegaChestercat/Project-Images/blob/main/images/bg2.png?raw=true);
     background-size: cover;
 }
 
@@ -43,25 +43,20 @@ label {
     margin-bottom: 1rem;
 }
 
-.details-title {
-    color: white;
+label{
+    margin-top: 0.2rem;
 }
-
-.contract-details {
-    background-color: white;
+textarea{
     padding: 1rem;
+    width: 25rem;
+    height:7rem;
     border-radius: 0.5rem;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 0.1rem;
+    resize: none;
+    display: block;
+    
 }
-
-.contract-text {
-    height: 15rem;
-    overflow-y: scroll;
-    text-align: left;
-    padding: 0.5rem;
-}
-
 .button-group {
     display: flex;
     justify-content: center;

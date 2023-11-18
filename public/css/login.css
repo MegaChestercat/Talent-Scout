@@ -15,6 +15,23 @@ body{
     
 }
 
+textarea, select{
+    display: block;
+    border-radius: 1rem;
+    padding-left: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+
+textarea{
+    overflow:hidden;
+    border-radius: 0.7rem;
+    padding-top: 0.3rem;
+    width:20rem;
+    height:5rem;
+    resize: none
+}
+
 .box{
     margin-top: 3rem;
     display: flex;

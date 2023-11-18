@@ -10,5 +10,9 @@ router.get("/register/company", Controller.registerCompany);
 router.get("/register/talent", Controller.registerTalent);
 router.get("/home", Controller.home);
 router.get("/dashboard", Controller.dash);
+router.get("/create/project", Controller.create);
+router.get("/create/contract", Controller.contract);
+router.get("/speedDating", Controller.speed)
+
 
 module.exports = router;
