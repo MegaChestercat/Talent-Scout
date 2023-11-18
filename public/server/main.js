@@ -6,7 +6,7 @@ $(document).ready(function (){
 });*/
 
 $("#loginBtn").click(function(event){
-  event.preventDefault();
+  
   $.ajax({
     url: "/login",
     method: "POST",
@@ -18,6 +18,7 @@ $("#loginBtn").click(function(event){
     },
     success: function(data){
       $("#loginForm").attr("disabled", false)
+      
       msg = data.message
       if(msg == "No exist"){
         Swal.fire("The account does not exist in the system")
@@ -28,12 +29,11 @@ $("#loginBtn").click(function(event){
     },
     error:function(data){
 
-    }
+    },
   })
 })
 
 $("#regCompany").click(function(event){
-  event.preventDefault();
   $.ajax({
     url: "/register/company",
     method: "POST",
@@ -44,20 +44,16 @@ $("#regCompany").click(function(event){
       $("#regCompany").attr("disabled", "disabled");
     },
     success: function(data){
+      /*
       msg = data.message
       $("#compReg").attr("disabled", false)
       if(msg  == "exist"){
         Swal.fire("The Account already exists");
         return false;
-      }
-      if(msg == "Saved"){
-        Swal.fire("Account Saved Succesfully");
-        return false;
-      }
+      }*/
     },
     error: function(error){
       console.log(error);
     }
-    
   })
 })

@@ -8,5 +8,7 @@ router.get("/register/hunter", Controller.registerHunter);
 router.get("/register/individual", Controller.registerIndividual);
 router.get("/register/company", Controller.registerCompany);
 router.get("/register/talent", Controller.registerTalent);
+router.get("/home", Controller.home);
+router.get("/dashboard", Controller.dash);
 
 module.exports = router;

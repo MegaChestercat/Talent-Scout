@@ -17,6 +17,15 @@ function registerTalent(req, res){
     res.render("login/register_talent")
 }
 
+function home(req, res){
+    res.render("home")
+}
+
+function dash(req, res){
+    res.render("menu/dashboard")
+}
+
+
 module.exports = {
     login: login,
     register: register,
@@ -24,4 +33,6 @@ module.exports = {
     registerHunter: registerHunter,
     registerIndividual: registerIndividual,
     registerTalent: registerTalent,
+    home: home,
+    dash: dash,
 }

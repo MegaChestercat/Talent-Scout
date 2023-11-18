@@ -34,14 +34,17 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-app.get("/", function (req, res){
-    res.render("home")
-});
-app.get("", function (req, res){
-    res.render("home")
-});
+
 app.use('/', routes);
 
+app.get("/", function (req, res){
+    if(req.session.loggedin == true){
+        res.render("/dashboard")
+    }
+    else{
+        res.redirect("/login")
+    }
+})
 
 
 
@@ -84,12 +87,16 @@ app.post('/register/company', function(request, response) {
                 `INSERT INTO [dbo].[Company] (HunterID, NombreCompania, GiroEmpresarial, FechaEstablecimiento, RepresentanteLegal)
                 VALUES (${parseInt(hid, 10)}, ${CompanyName}, ${BusinessActivity}, ${EstDate}, ${LegalRepresentative})`;
             
-            response.json({message: "Saved"})
         }
     }, 3)
+    response.redirect("/home")
 });
 
 //Read
+app.get("/login", function(req, res){
+    console.log(req.session.loggedin)
+    res.redirect('/')
+})
 app.post("/login", function(request, response){
     var emailLogin = request.body.emailLogin
     var passwordLogin = request.body.passwordLogin
@@ -104,7 +111,8 @@ app.post("/login", function(request, response){
             else{
                 request.session.loggedin = true;
                 request.session.name = exist.recordset[0].AccId;
-                response.render('/')
+                console.log(request.session.loggedin)
+
             }
         }
         else{
@@ -113,6 +121,7 @@ app.post("/login", function(request, response){
         
     }, 1)
 })
+
 app.get('/getAll', function(request, response) {
 });
 
