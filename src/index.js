@@ -25,6 +25,7 @@ app.set("view engine", "ejs")
 app.use(express.static("public"));
 app.use('/css', express.static(__dirname + "public/css"))
 app.use('/images', express.static(__dirname + "public/images"))
+app.use('/server', express.static(__dirname + "public/server"))
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -45,7 +46,7 @@ app.use('/', routes);
 
 
 //Create
-app.post('/register_company', function(request, response) {
+app.post('/register/company', function(request, response) {
     var CompEmail = request.body.CompEmail;
     var Comppassword = request.body.Comppassword;
     var CompPhoneNum = request.body.CompPhoneNum;
@@ -103,7 +104,7 @@ app.post("/login", function(request, response){
             else{
                 request.session.loggedin = true;
                 request.session.name = exist.recordset[0].AccId;
-                response.redirect("/success")
+                //response.redirect("/success")
             }
         }
         else{

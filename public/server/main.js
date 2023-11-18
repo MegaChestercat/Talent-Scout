@@ -8,7 +8,7 @@ $(document).ready(function (){
 $("#loginBtn").click(function(event){
   event.preventDefault();
   $.ajax({
-    url: "http://localhost:3000/login/",
+    url: "/login",
     method: "POST",
     timeout: 15000,
     data: $("#loginForm").serialize(),
@@ -35,7 +35,7 @@ $("#loginBtn").click(function(event){
 $("#regCompany").click(function(event){
   event.preventDefault();
   $.ajax({
-    url: "http://localhost:3000/register_company/",
+    url: "/register/company",
     method: "POST",
     timeout: 15000,
     data: $("#compReg").serialize(),
