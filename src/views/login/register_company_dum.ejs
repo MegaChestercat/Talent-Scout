@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/normalize.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="/css/register_2.css">
+        <title>Register Company | Who's your Talent?!</title>
+        <link rel="shortcut icon" href="src/img/icon.jpg">
+    </head>
+    <body>
+        <h1>Register Company</h1>
+        <div class="box">
+            <div class="selection">
+                <form method="post" id="compReg">
+                    <fieldset>
+                        <legend>Account Details:</legend>
+                        <label for="CompEmail">Email:</label>
+                        <input type="text" name="CompEmail" id="CompEmail" placeholder="richard.mounts@example.com">
+                        <label for="Comppassword">Password:</label>
+                        <input type="password" name="Comppassword" id="Comppassword" placeholder="********">
+                        <label for="CompPhoneNum">Phone Number:</label>
+                        <input type="text" name="CompPhoneNum" id="CompPhoneNum" placeholder="+52 (55) 83722796">
+                        <label for="CompLocation">Location:</label>
+                        <input type="text" name="CompLocation" id="CompLocation" placeholder="1150 Seventeenth Street, N.W. Washington, DC, 20036">
+                        <label for="Compdesc">Account Description:</label>
+                        <textarea name="Compdesc" id="Compdesc" placeholder="A business that tries to create innovative technologies that can help to manage the current issues of medical technology."></textarea>
+                        <label for="CompProjectActivity">Project Activities:</label>
+                        <input type="text" name="CompProjectActivity" id="CompProjectActivity" placeholder="Digital Animation, Marketing">
+                    </fieldset>
+                    <hr>
+                    <fieldset>
+                        <legend>Company Details:</legend>
+                        <label for="CompanyName">Company Name:</label>
+                        <input type="text" name="CompanyName" id="CompanyName" placeholder="Google">
+                        <label for="LegalRepresentative">Legal Representative:</label>
+                        <input type="text" name="LegalRepresentative" id="LegalRepresentative" placeholder="Clark Stewart">
+                        <label for="BusinessActivity">Business Activity:</label>
+                        <input type="text" name="BusinessActivity" id="BusinessActivity" placeholder="Advertising">
+                        <label for="EstDate">Establishment Date:</label>
+                        <input type="date" name="EstDate" id="EstDate">
+                    </fieldset>
+                </form>
+                <button id="regCompany" >Register</button>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/server/main.js"></script>
+    </body>
+</html>

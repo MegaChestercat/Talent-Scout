@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/css/speeddating.css">
+    <title>SpeedTalenting | TalentHunters</title>
+    <link rel="shortcut icon" href="src/icon.png">
+    <link rel="stylesheet" href="speeddating.css"> <!-- Include the existing style.css -->
+</head>
+<body>
+
+<div class="container">
+    <h1 class="page-title">SpeedTalenting</h1> <!-- Centered title at the top -->
+    <div class="center-rectangle">
+        <div class="person-info" id="talentInfo">
+            <h2>Richard Mounts</h2>
+            <p>Abilities: Full-stack Developer with expertise in React.js and Node.js. Experienced in designing and implementing scalable and responsive web applications.</p>
+            <p>Projects: Successfully completed projects in e-commerce, healthtech, and fintech industries.</p>
+        </div>
+        <div class="button-container">
+            <button class="green-button" onclick="updateTalentInfo()">Check</button>
+            <button class="red-button" onclick="updateTalentInfo()">X</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateTalentInfo() {
+        // Sample data for demonstration
+        const talents = [
+    {
+        name: "Sophia Johnson",
+        abilities: "UX/UI Designer specializing in creating intuitive and visually appealing user interfaces.",
+        projects: "Worked on various design projects for startups and established companies."
+    },
+    {
+        name: "Daniel Miller",
+        abilities: "Data Scientist with expertise in machine learning and statistical analysis.",
+        projects: "Contributed to data-driven decision-making processes in healthcare and finance."
+    },
+    {
+        name: "Emma Roberts",
+        abilities: "Marketing Specialist with a focus on digital marketing strategies and social media management.",
+        projects: "Executed successful marketing campaigns for e-commerce and tech companies."
+    },
+    {
+        name: "Alex Turner",
+        abilities: "Software Engineer proficient in Java and Python, experienced in developing scalable backend systems.",
+        projects: "Contributed to the development of high-performance software solutions in fintech."
+    },
+    {
+        name: "Olivia Davis",
+        abilities: "Content Creator skilled in producing engaging and informative multimedia content.",
+        projects: "Created content for lifestyle, technology, and education platforms."
+    },
+    {
+        name: "Ethan Brooks",
+        abilities: "Cybersecurity Analyst specializing in threat detection and vulnerability assessment.",
+        projects: "Enhanced security measures for organizations in the finance and government sectors."
+    },
+    {
+        name: "Ava Taylor",
+        abilities: "Mobile App Developer with expertise in iOS and Android app development.",
+        projects: "Developed user-friendly and feature-rich mobile applications for various industries."
+    },
+    {
+        name: "Mia Garcia",
+        abilities: "Graphic Designer creating visually stunning graphics for branding and marketing.",
+        projects: "Designed eye-catching visuals for advertising and promotional materials."
+    },
+    // Add more talents as needed
+];
+
+
+        // Get a random talent
+        const randomTalent = talents[Math.floor(Math.random() * talents.length)];
+
+        // Update the content
+        const talentInfo = document.getElementById("talentInfo");
+        talentInfo.innerHTML = `
+            <h2>${randomTalent.name}</h2>
+            <p>Abilities: ${randomTalent.abilities}</p>
+            <p>Projects: ${randomTalent.projects}</p>
+        `;
+    }
+</script>
+
+</body>
+</html>

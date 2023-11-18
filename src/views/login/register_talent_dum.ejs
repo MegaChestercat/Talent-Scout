@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="src/css/normalize.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="/css/register_2.css">
+        <title>Register Talent | Who's your Talent?!</title>
+        <link rel="shortcut icon" href="/img/icon.jpg">
+    </head>
+    <body>
+        <h1>Register Talent</h1>
+        <div class="box">
+            <div class="selection">
+                <form>
+                    <fieldset>
+                        <legend>Account Details:</legend>
+                        <label for="Email">Email:</label>
+                        <input type="text" id="Email" placeholder="matthew.loucks@example.com">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" placeholder="********">
+                        <label for="PhoneNum">Phone Number:</label>
+                        <input type="text" id="PhoneNum" placeholder="+1 (555) 123-4567">
+                        <label for="location">Location:</label>
+                        <input type="text" id="location" placeholder="USA">
+                        <label for="desc">Account Description:</label>
+                        <textarea id="desc" placeholder="A passionate individual striving for excellence in JavaScript development."></textarea>
+                        <label for="ProjectActivity">Project Activities:</label>
+                        <input type="text" id="ProjectActivity" placeholder="Web Development, Mobile App Design">
+                    </fieldset>
+                    <hr>
+                    <fieldset>
+                        <legend>Talent Details:</legend>
+                        <label for="Name">First Name:</label>
+                        <input type="text" id="Name" placeholder="Matthew">
+                        <label for="LastName">Last Name:</label>
+                        <input type="text" id="LastName" placeholder="Loucks">
+                        <label for="BirthDate">Birth Date:</label>
+                        <input type="date" id="BirthDate">
+                        <label for="ProfileTitle">Profile Title:</label>
+                        <input type="text" id="ProfileTitle" placeholder="JavaScript Developer">
+                        <label for="AcademicBackground">Academic Background:</label>
+                        <textarea id="AcademicBackground" placeholder="Degrees in Computer Science, Certifications in Full Stack Development"></textarea>
+                        <label for="ProfActivity">Professional Activity:</label>
+                        <textarea id="ProfActivity" placeholder="Lead Developer at XYZ Corp, Project Manager at ABC Inc"></textarea>
+                        <label for="Capacities">Skills:</label>
+                        <textarea id="Capacities" placeholder="JavaScript, Node.js, React, HTML, CSS"></textarea>
+                        <label for="AvTime">Available Time:</label>
+                        <input type="text" id="AvTime" placeholder="Mon-Fri from 8am to 6pm">
+                        <label for="AvPlace">Available Place:</label>
+                        <input type="text" id="AvPlace" placeholder="Online, Hybrid">
+                        <label for="Cost">Cost:</label>
+                        <input type="number" id="Cost" placeholder="50">
+                        <label for="CostType">Cost Type:</label>
+                        <select name="CostType" id="type">
+                            <option value="hour" selected>Per Hour</option>
+                            <option value="project">Per Project</option>
+                        </select>
+                    </fieldset>
+                </form>
+                <!-- Placeholder for the registration link -->
+                <a href="/register"><button>Register</button></a>
+            </div>
+        </div>
+    </body>
+</html>
