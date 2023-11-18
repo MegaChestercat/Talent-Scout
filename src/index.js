@@ -104,7 +104,7 @@ app.post("/login", function(request, response){
             else{
                 request.session.loggedin = true;
                 request.session.name = exist.recordset[0].AccId;
-                //response.redirect("/success")
+                response.render('/')
             }
         }
         else{
