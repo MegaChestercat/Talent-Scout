@@ -13,9 +13,9 @@
     <nav>
         <h3 id="greet">Welcome! USERNAME</h3>
         <ul>
-            <li><button href="/create/project" id="cprojectbtn"class="norm">Create Project</button></li>
-            <li><button href="/create/contract" class="norm">Create Contract</buton></li>
-            <li><button href="/speedDating" class="norm">Speed Dating</button></li>
+            <li><button id="cprojectbtn"class="norm">Create Project</button></li>
+            <li><button class="norm">Create Contract</buton></li>
+            <li><button class="norm">Speed Dating</button></li>
         </ul>
     </nav>
 
@@ -27,22 +27,20 @@
         <div class=""></div> <!-- Add the rectangle here -->
 
         <div class="title">Welcome to your Talented Dashboard
-            <div class="rectangle">
-                <h2>History of Projects</h2>
+            <button id="record"class="rectangle">
+                <h2>Account Record</h2>
                 <br>
-                <p>Check the history of all your projects</p>
-            </div>
-            
-            <div class="rectangle">
+                <p>Check all the Projects, Datings, and Contracts linked to you</p>
+            </button>
+            <button id="AvailableProjects"class="rectangle">
                 <h2>Current Projects</h2>
                 <br>
-                <p>Check all the current projects that are vailable to join</p>
-            </div>
-
-        
+                <p>Check all the current projects that are available to join</p>
+            </button>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 $(document).ready(function(){
     setTimeout(function(){

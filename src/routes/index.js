@@ -13,6 +13,7 @@ router.get("/dashboard", Controller.dash);
 router.get("/create/project", Controller.create);
 router.get("/create/contract", Controller.contract);
 router.get("/speedDating", Controller.speed)
+router.get("/project/list", Controller.projectList)
 
 
 module.exports = router;

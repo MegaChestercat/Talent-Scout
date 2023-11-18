@@ -46,18 +46,98 @@ app.get("/", function (req, res){
     }
 })
 
-app.get("/login/success", function(req, res){
-    if(req.session.loggedin){
-        res.redirect("/dashboard")
-    }
-    else{
-        res.redirect("/home")
-    }
+//Create
+app.post('/register/talent', function(request, response){
+    var TalEmail = request.body.TalEmail;
+    var Talpassword = request.body.Talpassword;
+    var TalPhoneNum = request.body.TalPhoneNum;
+    var TalLocation = request.body.TalLocation;
+    var Taldesc = request.body.Taldesc;
+    var TalProjectActivity = request.body.TalProjectActivity;
+    var TalName = request.body.TalName;
+    var TalLastName = request.body.TalLastName;
+    var TalBirthDate = request.body.TalBirthDate;
+    var TalProfileTitle = request.body.TalProfileTitle;
+    var TalFormacion = request.body.TalAcademicBackground;
+    var TalAvTime = request.body.TalAvTime;
+    var TalAvPlace = request.body.TalAvPlace;
+
+    var TalCapacities = request.body.TalProfileTitle;
+    var TalProfActivity = request.body.TalAcademicBackground;
+    var TalCost = request.body.TalCost;
+    var TalCostType = request.body.TalCostType;
+
+    setTimeout(async ()=>{
+        await sql_server.connect(dbConfig)
+        var exist = await sql_server.query`SELECT * from [dbo].[Account] where Email =${TalEmail}`
+        if(exist.recordset.length == 1){
+            response.json({message: "exist"})
+        }
+        else{
+            await sql_server.query
+            `INSERT INTO [dbo].[Account] (Email, Password, PhoneNum, Location, Description, Score, AccountType)
+            VALUES (${TalEmail}, ${Talpassword}, ${TalPhoneNum}, ${TalLocation}, ${Taldesc}, ${0}, ${"Talent"})`;
+            
+            var AccEnt = await sql_server.query`SELECT AccId from [dbo].[Account] where Email =${TalEmail}`
+            var id = AccEnt.recordset[0].AccId
+            
+            await sql_server.query
+                `INSERT INTO [dbo].[Talent] (AccId, Nombre, Apellidos, BirthDate, ProjectActivity, Formacion, TituloPerfil, DispTime, DispPlace, Capacidades, ProfActivity, Cost, CostType)
+                VALUES (${parseInt(id, 10)}, ${TalName}, ${TalLastName}, ${TalBirthDate}, ${TalProjectActivity}, ${TalFormacion}, ${TalProfileTitle}, ${TalAvTime},  ${TalAvPlace},  ${TalCapacities}, ${TalProfActivity}, ${TalCost}, ${TalCostType})`;
+            
+            response.json({message: "success"})
+        }
+    }, 3)
 })
 
 
 
-//Create
+
+
+
+
+app.post('/register/individual', function(request, response){
+    var IndEmail = request.body.IndEmail;
+    var Indpassword = request.body.Indpassword;
+    var IndPhoneNum = request.body.IndPhoneNum;
+    var IndLocation = request.body.IndLocation;
+    var Inddesc = request.body.Inddesc;
+    var IndProjectActivity = request.body.IndProjectActivity;
+    var IndName = request.body.IndName;
+    var IndLastName = request.body.IndLastName;
+    var IndBirthDate = request.body.IndBirthDate;
+    var IndProfileTitle = request.body.IndProfileTitle;
+
+    setTimeout(async ()=>{
+        await sql_server.connect(dbConfig)
+        var exist = await sql_server.query`SELECT * from [dbo].[Account] where Email =${IndEmail}`
+        if(exist.recordset.length == 1){
+            response.json({message: "exist"})
+        }
+        else{
+            await sql_server.query
+            `INSERT INTO [dbo].[Account] (Email, Password, PhoneNum, Location, Description, Score, AccountType)
+            VALUES (${IndEmail}, ${Indpassword}, ${IndPhoneNum}, ${IndLocation}, ${Inddesc}, ${0}, ${"Hunter"})`;
+
+            var AccEnt = await sql_server.query`SELECT AccId from [dbo].[Account] where Email =${IndEmail}`
+            var id = AccEnt.recordset[0].AccId
+            
+            await sql_server.query
+                `INSERT INTO [dbo].[Hunter] (AccID, GiroProyectos)
+                VALUES (${parseInt(id, 10)}, ${IndProjectActivity})`;
+            
+            var HuntEnt = await sql_server.query`SELECT HunterID from [dbo].[Hunter] where AccID =${id}`
+            var hid = HuntEnt.recordset[0].HunterID
+
+            await sql_server.query
+                `INSERT INTO [dbo].[Individual] (HunterID, Nombre, Apellidos, DateBirth, TituloPerfil)
+                VALUES (${parseInt(hid, 10)}, ${IndName}, ${IndLastName}, ${IndBirthDate}, ${IndProfileTitle})`;
+            response.json({message: "success"})
+        }
+    }, 3)
+})
+
+
 app.post('/register/company', function(request, response) {
     var CompEmail = request.body.CompEmail;
     var Comppassword = request.body.Comppassword;
@@ -81,8 +161,7 @@ app.post('/register/company', function(request, response) {
             `INSERT INTO [dbo].[Account] (Email, Password, PhoneNum, Location, Description, Score, AccountType)
             VALUES (${CompEmail}, ${Comppassword}, ${CompPhoneNum}, ${CompLocation}, ${Compdesc}, ${0}, ${"Hunter"})`;
 
-            AccEnt = await sql_server.query`SELECT AccId from [dbo].[Account] where Email =${CompEmail} and Description =${Compdesc}`
-            console.log(AccEnt)
+            AccEnt = await sql_server.query`SELECT AccId from [dbo].[Account] where Email =${CompEmail}`
             id = AccEnt.recordset[0].AccId
             
             await sql_server.query
@@ -95,10 +174,9 @@ app.post('/register/company', function(request, response) {
             await sql_server.query
                 `INSERT INTO [dbo].[Company] (HunterID, NombreCompania, GiroEmpresarial, FechaEstablecimiento, RepresentanteLegal)
                 VALUES (${parseInt(hid, 10)}, ${CompanyName}, ${BusinessActivity}, ${EstDate}, ${LegalRepresentative})`;
-            
+            response.json({message: "success"})
         }
     }, 3)
-    response.redirect("/home")
 });
 
 //Read
@@ -141,13 +219,59 @@ app.post("/login", function(request, response){
     }, 1)
 })
 
-app.get('/getAll', function(request, response) {
+app.post("/dashboard/project", function(req, res){
+    var id = req.body.id
+    setTimeout(async () =>{
+        await sql_server.connect(dbConfig)
+        var exist2 = await sql_server.query`SELECT * from [dbo].[Hunter] where AccID = ${id}`
+        if(exist2.recordset.length == 1){
+            res.json({message: "success"});
+        }
+        else{
+            res.json({message: "fail"});
+        }
+    })
+})
+
+app.post("/create/project", function(req, res){
+    console.log(req.body.data)
+    var PName = req.body.data.projectName
+    var PStart = req.body.data.startDate
+    var PEnd = req.body.data.endDate
+    var PType = req.body.data.paymentType
+    var PAmount = req.body.data.paymentAmount
+    var PDesc = req.body.data.description
+    var PDes = req.body.data.desirableAbilities
+    var PNed = req.body.data.requiredAbilities
+    var HunterID = req.body.id
+
+    setTimeout(async () =>{
+        await sql_server.connect(dbConfig)
+        var title = await sql_server.query`SELECT * FROM [dbo].[Project] where Titulo=${PName}`
+        if(title.recordset.length == 1){
+            response.json({message: "exist"})
+        }
+        await sql_server.query
+        `INSERT INTO [dbo].[Project] (HunterID, Titulo, FechaPub, FechaVen, TipoPago, Cantidad, Descripcion, HabDeseadas, HabReq)
+        VALUES (${HunterID}, ${PName}, ${PStart}, ${PEnd}, ${PType}, ${PAmount}, ${PDesc}, ${PDes}, ${PNed})`
+
+        response.json({message: "success"})
+    }, 1)
+})
+
+app.get('/project/list', function(request, response) {
+    setTimeout(async () =>{
+        await sql_server.connect(dbConfig)
+        var exist2 = await sql_server.query`SELECT * from [dbo].[Project]`
+        if(exist2.recordset.length > 0){
+            response.send(exist2.recordset);
+        }
+        else{
+            response.json({message: "fail"});
+        }
+    }, 1)
 });
 
-//Update
-
-
-//Delete
 
 
 app.listen(process.env.SPORT, function() { console.log("Running Express")});

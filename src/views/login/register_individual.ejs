@@ -7,43 +7,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="/css/register_2.css">
         <title>Register Individual | Who's your Talent?!</title>
-        <link rel="shortcut icon" href="src/img/icon.jpg">
+        <link rel="shortcut icon" href="/images/icon.jpg">
     </head>
     <body>
         <h1>Register Individual</h1>
         <div class="box">
             <div class="selection">
-                <form>
+                <form id="indReg">
                     <fieldset>
                         <legend>Account Details:</legend>
-                        <label for="Email">Email:</label>
-                        <input type="text" id="Email" placeholder="example@email.com">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" placeholder="Password">
-                        <label for="PhoneNum">Phone Number:</label>
-                        <input type="text" id="PhoneNum" placeholder="Google">
-                        <label for="location">Location:</label>
-                        <input type="text" id="location" placeholder="USA">
-                        <label for="desc">Account Description:</label>
-                        <textarea id="desc" placeholder="A business that tries to create innovative technologies that can help to manage the current issues of medical technology."></textarea>
-                        <label for="ProjectActivity">Project Activities:</label>
-                        <input type="text" id="ProjectActivity" placeholder="Digital Animation, Marketing">
+                        <label for="IndEmail">Email:</label>
+                        <input type="text" name='IndEmail'id="IndEmail" placeholder="example@email.com">
+                        <label for="Indpassword">Password:</label>
+                        <input type="Indpassword" name="Indpassword" id="Indpassword" placeholder="Password">
+                        <label for="IndPhoneNum">Phone Number:</label>
+                        <input type="text" name="IndPhoneNum"id="IndPhoneNum" placeholder="Google">
+                        <label for="IndLocation">Location:</label>
+                        <input type="text" name="IndLocation"id="IndLocation" placeholder="USA">
+                        <label for="Inddesc">Account Description:</label>
+                        <textarea id="Inddesc" name="Inddesc" placeholder="A business that tries to create innovative technologies that can help to manage the current issues of medical technology."></textarea>
+                        <label for="IndProjectActivity">Project Activities:</label>
+                        <input type="text" name="IndProjectActivity"id="IndProjectActivity" placeholder="Digital Animation, Marketing">
                     </fieldset>
                     <hr>
                     <fieldset>
                         <legend>Individual Details:</legend>
-                        <label for="Name">Company Name:</label>
-                        <input type="text" id="Name" placeholder="Matthew">
-                        <label for="LastName">Last Name:</label>
-                        <input type="text" id="LastName" placeholder="Loucks">
-                        <label for="BirthDate">Birth Date:</label>
-                        <input type="date" id="BirthDate">
-                        <label for="ProfileTitle">Profile Title:</label>
-                        <input type="text" id="ProfileTitle" placeholder="JavaScript Developer">
+                        <label for="IndName">First Name:</label>
+                        <input type="text" name="IndName"id="IndName" placeholder="Matthew">
+                        <label for="IndLastName">Last Name:</label>
+                        <input type="text" name="IndLastName" id="IndLastName" placeholder="Loucks">
+                        <label for="IndBirthDate">Birth Date:</label>
+                        <input type="date" name="IndBirthDate"id="IndBirthDate">
+                        <label for="IndProfileTitle">Profile Title:</label>
+                        <input type="text" name="IndProfileTitle" id="IndProfileTitle" placeholder="JavaScript Developer">
                     </fieldset>
                 </form>
-                <a href=""><button>Register</button></a>
+                <button id="regInd">Register</button>
             </div>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/server/main.js"></script>
     </body>
 </html>

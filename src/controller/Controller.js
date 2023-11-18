@@ -37,6 +37,10 @@ function speedDating(res, res){
     res.render("others/speeddating")
 }
 
+function projectList(res, res){
+    res.render("menu/project_list")
+}
+
 
 module.exports = {
     login: login,
@@ -50,4 +54,5 @@ module.exports = {
     create: createProject,
     contract: createContract,
     speed: speedDating,
+    projectList: projectList,
 }

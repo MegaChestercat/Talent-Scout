@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="/css/normalize.css">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link type="text/css" rel="stylesheet" href="/css/projectList.css">
+            <title>User History | TalentHunters</title>
+            <link rel="shortcut icon" href="/src/icon.png">
+        </head>
+    </head>
+    <body>
+        <nav>
+            <a href="/dashboard" id="back"><img src="https://github.com/MegaChestercat/Project-Images/blob/main/images/arrow.png?raw=true"></a>
+            <ul>
+                <li><button id="cprojectbtn"class="norm">Create Project</button></li>
+                <li><button class="norm">Create Contract</buton></li>
+                <li><button class="norm">Speed Dating</button></li>
+            </ul>
+        </nav>
+        <h1>Project List</h1>
+        <h3>Check all the available projects for choosing</h3>
+        <div class="tableBase">
+            <div class="tabla">
+                <div class="tableBody">
+                    <table id="ProjectsTable">
+                        <thead>
+                            <tr>
+                                <th>ProjectID</th>
+                                <th>HunterID</th>
+                                <th>Project Title</th>
+                                <th>Description</th>
+                                <th>Publication Date</th>
+                                <th>Due Date</th>
+                                <th>Join Project</th>
+                            </tr>
+                        </thead>
+                        <tbody id="t_Body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="/server/ProjectList.js"></script>
+    </body>
+</html>
