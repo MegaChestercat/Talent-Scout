@@ -1,13 +1,13 @@
 $(document).ready(function (){
     $.ajax({
         url: "/project/list",
-        method: "GET",
-        timeout: 15000,
-        data: jsonData,
+        method: "POST",
         dataType: "json",
+        timeout: 15000,
         beforeSend:function(){
         },
         success: function(data){
+          console.log(data)
           if(data.message == "fail"){
           }
           else{
@@ -33,12 +33,12 @@ $(document).ready(function (){
 
                 let JoinBtnRow = document.createElement('td');
                 JoinBtnRow.className = "DelBtnCon"
-                let JoinBtn = document.createElement('a');
+                let JoinBtn = document.createElement('button');
                 JoinBtn.textContent = `Join`;
 
                 JoinBtn.addEventListener('click', joinProject);
 
-                tableBody.appendChild(tr);
+                $("#t_Body").append(tr);
                 tr.appendChild(col1)
                 tr.appendChild(col2)
                 tr.appendChild(col3)
@@ -55,3 +55,7 @@ $(document).ready(function (){
         }
       })
 })
+
+function joinProject(){
+
+}

@@ -259,12 +259,12 @@ app.post("/create/project", function(req, res){
     }, 1)
 })
 
-app.get('/project/list', function(request, response) {
+app.post('/project/list', function(request, response) {
     setTimeout(async () =>{
         await sql_server.connect(dbConfig)
         var exist2 = await sql_server.query`SELECT * from [dbo].[Project]`
         if(exist2.recordset.length > 0){
-            response.send(exist2.recordset);
+            response.json(exist2.recordset);
         }
         else{
             response.json({message: "fail"});

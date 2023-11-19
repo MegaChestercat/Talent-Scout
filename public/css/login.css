@@ -84,3 +84,69 @@ button:hover{
 button:hover::after{
     background-color:orange;
 }
+
+
+nav{
+    position: sticky;
+    font-size: 1.5rem;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-shadow: 0 0 0.19rem #000000;
+    background-color: rgb(255,255,255);
+}
+nav ul{
+    margin-right: 6.3rem;
+    text-align: left;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 1rem 1.8rem;
+}
+
+nav ul li a{
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+    transition: 0.3s;
+}
+
+nav ul li .norm::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+nav ul li .norm:hover::after{
+    width: 100%;
+}
+
+.norm{
+    border-color: transparent;
+    border-radius: 15rem;
+    background-color: lightgray;
+    height: 2.4rem;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 5rem;
+}
+
+.norm:hover{
+    background-color: #D88E35;
+}
+
+.norm:hover::after{
+    background-color: lightgray;
+}
+
+#back{
+    width: 140px;
+    margin-left: 50px;
+}
